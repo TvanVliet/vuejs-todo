@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Learning Vue.js</title>
+	<script src="https://unpkg.com/vue"></script>
 </head>
 <body>
 
@@ -9,12 +10,89 @@
 	{{ message }}
 </div>
 
-<script src="https://unpkg.com/vue"></script>
+<div id="app2">
+	<span v-bind:title="message">
+		Hover to see dynamic title.
+	</span>
+</div>
+
+<div id="app3">
+	<span v-if="seen">Now you see me</span>
+</div>
+
+<div id="app4">
+	<ol>
+		<li v-for="todo in todos">
+			{{ todo.text }}
+		</li>
+	</ol>
+</div>
+
+<div id="app5">
+	<p>
+		{{ message }}
+	</p>
+	<button v-on:click="reverseMessage">Reverse Message</button>
+</div>
+
+<div id="app6">
+	<p>
+		{{ message }}
+	</p>
+	<input v-model="message">
+</div>
+
 <script>
 	var app = new Vue({
 		el: '#app',
 		data: {
 			message: 'Hello!'
+		}
+	})
+
+	var app2 = new Vue({
+		el: '#app2',
+		data: {
+			message: 'You loaded this page on ' + new Date().toLocaleString()
+		}
+	})
+
+	// when app3.seen is set to false, the text will disappear
+	var app3 = new Vue({
+		el: '#app3',
+		data: {
+			seen: true
+		}
+	})
+
+	// app4.todos.push({ text: 'New item'}) adds a new item to the list.
+	var app4 = new Vue({
+		el: '#app4',
+		data: {
+			todos: [
+			{ text: 'Learn Javascript'},
+			{ text: 'Learn Vue'},
+			{ text: 'Build something awesome' }
+			]
+		}
+	})
+
+	var app5 = new Vue({
+		el: '#app5',
+		data: {
+			message: 'Hello Vue.js!'
+		},
+		methods: {
+			reverseMessage: function() {
+				this.message = this.message.split('').reverse().join('')
+			}
+		}
+	})
+
+	var app6 = new Vue({
+		el: '#app6',
+		data: {
+			message: 'Hello Vue!'
 		}
 	})
 </script>
