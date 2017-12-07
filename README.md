@@ -1,6 +1,6 @@
 # todo
 
-> learning vue.js
+> A Vue.js project
 
 ## Build Setup
 

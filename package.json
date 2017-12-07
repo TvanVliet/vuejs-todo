@@ -1,7 +1,7 @@
 {
   "name": "todo",
   "version": "1.0.0",
-  "description": "learning vue.js",
+  "description": "A Vue.js project",
   "author": "TvanVliet <dev.timvanvliet@gmail.com>",
   "private": true,
   "scripts": {
